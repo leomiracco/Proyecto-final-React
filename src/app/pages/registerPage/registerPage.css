@@ -1,0 +1,33 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-register-page{
+  /* border: 5px solid blue; */
+  background-color: hsl(139, 72%, 86%);
+  min-height: 100vh;
+  padding-top: 8rem;
+}
+
+.div-container-register-page{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.form-register{
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-column-end: 12;
+}

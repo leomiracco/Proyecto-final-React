@@ -1,0 +1,25 @@
+.navbar{
+  align-items: center;
+  background-color: hsl(0, 0%, 15%);
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+
+  grid-column-start: 1;
+  grid-column-end: 13;
+
+  position: fixed;
+}
+
+.navbar .image-container{
+  grid-column-start: 2;
+}
+
+.navbar .navigation-container{
+  align-items: center;
+  /* border: 1px solid green; */
+  display: flex;
+  
+  grid-column-end: 18;
+  justify-content: space-between;
+  width: 18rem;
+}

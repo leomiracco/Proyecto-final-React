@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-home-login-page{
+  background-color: hsl(160, 100%, 92%);
+  min-height: 100vh;
+  padding-top: 8rem;
+}
+
+.div-container-home-login-page{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.section-title{
+  border: 3px solid blue;
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  justify-content: center;
+}
+
+.title-home-login-page{
+  font-size: 5rem;
+}
