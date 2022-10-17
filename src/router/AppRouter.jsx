@@ -4,6 +4,8 @@ import { HomeLoginPage, HomeLogoutPage, LoginPage, RegisterPage } from "../app/p
 import { NavBar } from "../ui/components/navBar/NavBar";
 import { SpinnerAuth } from "../ui/components/spinnerAuth";
 import { useCheckAuth } from "../hooks";
+import { PrivateRoute, PublicRoute } from "./";
+import { PrivatePelisYaRoutes, PublicPelisYaRoutes } from "../app/appRoutes";
 
 export const AppRouter = ()=>{
 
@@ -22,15 +24,40 @@ export const AppRouter = ()=>{
 
       <Routes>
 
+        {(status === 'not-authenticated' || status === 'checking') && <Route path="/login" element={ <LoginPage /> } />}
+
+        {(status === 'not-authenticated' || status === 'checking') && <Route path="/register" element={ <RegisterPage /> } />}
+
         {(status === 'not-authenticated' || status === 'checking') && <Route path="/" element={ <HomeLogoutPage /> } />}
 
-        {(status === 'authenticated') && <Route path="/" element={ <HomeLoginPage /> } />}
+        {(status === 'authenticated' || status === 'checking') && <Route path="/" element={ <HomeLoginPage /> } />}
 
-        <Route path="/login" element={ <LoginPage /> } />
+        {(status === 'authenticated' || status === 'checking') && <Route path="/*" element={ <Navigate to={"/"} /> } />}
 
-        <Route path="/register" element={ <RegisterPage /> } />
+        {/***************************************/}
 
-        <Route path="/*" element={ <Navigate to={"/"} /> } />
+        {/* <Route path="/*" element={
+          <PrivateRoute>
+            <Routes>
+              <Route path="home" element={<HomeLoginPage />} />
+            </Routes>
+          </PrivateRoute>
+        } /> */}
+
+        {/* <Route path="/public/*" element={
+          <PublicRoute>
+            <Routes>
+              <Route path="/home" element={
+                <HomeLogoutPage />} />
+
+              <Route path="/login" element={
+                <LoginPage />} />
+
+              <Route path="/register" element={
+                <RegisterPage />} />
+            </Routes>
+          </PublicRoute>
+        } /> */}
 
       </Routes>
     </>

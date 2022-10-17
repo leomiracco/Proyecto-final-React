@@ -17,6 +17,7 @@ export const useCheckAuth = ()=>{
     // este método es de Firebase. Genera un
     // 'Observer'.
     onAuthStateChanged(FirebaseAuth, async (user)=>{
+      
       if(!user) return dispatch(logout({}));
 
       const {uid, displayName, email, photoURL} = user;

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
 import { useForm } from '../../../hooks/useForm';
 import { startGoogleSignIn, startLoginWithEmailAndPassword } from '../../../store/auth/thunks';
@@ -34,6 +34,7 @@ export const LoginPage = ()=>{
     setFormSubmitted(true);
     
     dispatch(startLoginWithEmailAndPassword(email, password));
+
   };
 
   const onGoogleSignIn = ()=>{
@@ -62,7 +63,7 @@ export const LoginPage = ()=>{
           <input type="password" name="password" className="peli-input" placeholder="Ingrese la constraseña" value={password} onChange={onInputChange} />
 
           <div className="container-error">
-            <h4>{formSubmitted ? errorMessage : null}</h4>
+            <h4>{formSubmitted && errorMessage}</h4>
           </div>
 
           <button disabled={isAuthenticated} type="submit" >

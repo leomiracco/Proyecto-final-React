@@ -23,3 +23,7 @@
   justify-content: space-between;
   width: 18rem;
 }
+
+.navbar .navigation-container a{
+  color: white;
+}
