@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
+import { Input } from '../../../components/input/Input';
 
 import { useForm } from '../../../hooks/useForm';
 import { startGoogleSignIn, startLoginWithEmailAndPassword } from '../../../store/auth/thunks';
@@ -20,11 +21,11 @@ export const LoginPage = ()=>{
 
   const [formSubmitted, setFormSubmitted] = useState();
 
-  const {status, errorMessage} = useSelector((state)=> state.auth);
+  const {status, errorMessage, isLogin} = useSelector((state)=> state.auth);
 
   const dispatch = useDispatch();
 
-  const {email, password, onInputChange, onResetForm} = useForm(formData);
+  const {email, hobbie, password, onInputChange, onResetForm} = useForm(formData);
 
   const isAuthenticated = useMemo(()=> status === 'checking', [status]);
 
@@ -43,11 +44,11 @@ export const LoginPage = ()=>{
   };
 
   useEffect(()=>{
-    if(status === 'authenticated'){
+    if(isLogin){
       onResetForm();
       setFormSubmitted(false);
     }
-  }, [status]);
+  }, [isLogin]);
 
   return(
     <main className="main-login-page">
@@ -56,29 +57,43 @@ export const LoginPage = ()=>{
 
         <form onSubmit={onSubmit} className="form-login">
 
-          <label htmlFor="">Correo:</label>
-          <input type="email" name="email" className="peli-input" placeholder="Ingrese el correo" value={email} onChange={onInputChange} />
+          <div className="label-email-container">
+            <label htmlFor="">Correo:</label>
+          </div>
 
-          <label htmlFor="">Contraseña:</label>
-          <input type="password" name="password" className="peli-input" placeholder="Ingrese la constraseña" value={password} onChange={onInputChange} />
+          <div className="input-email-container">
+            <input type="email" name="email" className="peli-input" placeholder="Ingrese el correo..." value={email} onChange={onInputChange} />
+          </div>
+
+          <div className="label-password-container">
+            <label htmlFor="">Contraseña:</label>
+          </div>
+
+          <div className="input-password-container">
+            <input type="password" name="password" className="peli-input" placeholder="Ingrese la constraseña..." value={password} onChange={onInputChange} />
+          </div>
 
           <div className="container-error">
             <h4>{formSubmitted && errorMessage}</h4>
           </div>
 
-          <button disabled={isAuthenticated} type="submit" >
-            Login
-          </button>
+          <div className="button-login-container">
+            <button disabled={isAuthenticated} type="submit" >
+              Login
+            </button>
+          </div>
 
-          <button type="button" onClick={onGoogleSignIn} disabled={isAuthenticated} >
+          <div className="button-google-container">
+            <button type="button" onClick={onGoogleSignIn} disabled={isAuthenticated} >
             Google
-          </button>
+            </button>
+          </div>
 
-          <button type="button" disabled={isAuthenticated} >
-            <NavLink to="/register">
+          <div disabled={isAuthenticated} className="button-create-account-container">
+            <NavLink to="/public/register">
               Crear Cuenta
             </NavLink>
-          </button>
+          </div>
 
         </form>
 

@@ -13,10 +13,8 @@ body{
 }
 
 .main-login-page{
-  /* border: 5px solid blue; */
-  background-color: hsl(34, 65%, 87%);
   min-height: 100vh;
-  padding-top: 8rem;
+  padding-top: 14rem;
 }
 
 .div-container-login-page{
@@ -25,9 +23,62 @@ body{
 }
 
 .form-login{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   grid-column-start: 2;
   grid-column-end: 12;
+}
+
+.form-login div{
+  margin-bottom: 2rem;
+}
+
+.label-email-container label,
+.label-password-container label{
+  font-size: 2.2rem;
+  width: 30rem;
+}
+
+.input-email-container input,
+.input-password-container input{
+  border-radius: 5px;
+  font-family: fantasy;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 30rem;
+}
+
+.button-login-container{
+  margin-top: 2rem;
+}
+
+.button-login-container button,
+.button-google-container button{
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: fantasy;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 30rem;
+}
+
+.button-google-container button{
+  margin-bottom: 1rem;
+}
+
+.button-create-account-container a{
+  background-color: rgba(9, 8, 8, 0.8);
+  border-radius: 5px;
+  box-shadow: 2px -2px 1px 1px white;
+  border: 2px solid black;
+  color: hsl(345, 96%, 50%);
+  display: flex;
+  font-family: fantasy;
+  justify-content: center;
+  letter-spacing: 1px;
+  padding: 1rem;
+  text-decoration: none;
+  width: 30rem;
 }

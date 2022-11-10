@@ -7,7 +7,7 @@ import { login, logout } from "../store/auth/authSlice";
 
 export const useCheckAuth = ()=>{
 
-  const {status} = useSelector((state)=> state.auth);
+  const {status, isLogin} = useSelector((state)=> state.auth);
   const dispatch = useDispatch();
 
   // acá para realizar lo siguiente, debemos
@@ -18,7 +18,10 @@ export const useCheckAuth = ()=>{
     // 'Observer'.
     onAuthStateChanged(FirebaseAuth, async (user)=>{
       
-      if(!user) return dispatch(logout({}));
+      if(!user){
+        localStorage.clear();
+        return dispatch(logout({}));
+      }
 
       const {uid, displayName, email, photoURL} = user;
 
@@ -27,7 +30,8 @@ export const useCheckAuth = ()=>{
   }, []);
 
   return{
-    status
+    status,
+    isLogin
   }
 
 };

@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-checking-auth{
+  /* background-color: hsl(160, 100%, 92%); */
+  min-height: 100vh;
+  padding-top: 16rem;
+}
+
+.div-container-checking-auth{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.section-title{
+  /* border: 3px solid blue; */
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  justify-content: center;
+}
+
+.title-checking-auth{
+  background-color: rgba(226, 221, 221, 0.8);
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 10px;
+  font-size: 5rem;
+  padding: 2rem 20%;
+}

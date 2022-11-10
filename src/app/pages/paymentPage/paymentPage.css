@@ -1,0 +1,205 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-home-payment-page{
+  min-height: 100vh;
+  padding-top: 14rem;
+}
+
+.div-container-home-payment-page{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  position: relative;
+}
+
+.section-payment-title{
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  justify-content: center;
+  margin-bottom: 10rem;
+}
+
+.title-home-payment-page{
+  background-color: rgba(226, 221, 221, 0.8);
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border: 1px solid hsl(345, 96%, 50%, 0.8);
+  border-radius: 10px;
+  color: black;
+  font-size: 5rem;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 12%;
+  text-align: center;
+}
+
+.empty-cart-message-payment-container{
+  grid-column-start: 2;
+  grid-column-end: 12;
+}
+
+.empty-cart-message-payment-container h2{
+  background-color: rgba(226, 221, 221, 0.8);
+  border-radius: 7px;
+  color: red;
+  letter-spacing: 1px;
+  padding: 2rem;
+}
+
+.container-to-display-successful-payment{
+  background-color: rgba(0, 0, 0, 0.87);
+  border-radius: 10px;
+  color: hsl(345, 96%, 50%);
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  left: 50%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rem;
+  z-index: 999;
+}
+
+.container-title-successful-payment{
+  align-items: center;
+  /* border: 1px solid red; */
+  display: flex;
+  height: 80%;
+  justify-content: center;
+}
+
+.ok-button-payment-container{
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  height: 20%;
+  /* padding-right: 3rem; */
+}
+
+.ok-button-payment-container button{
+  /* border-radius: 10px;
+  padding: 0.5rem 4rem; */
+}
+
+.ok-button-payment-container a{
+  /* background-color: hsl(345, 96%, 50%, 0.8); */
+  background-color: rgba(226, 221, 221, 0.8);
+  border: 1px solid hsl(345, 96%, 50%, 0.8);
+  border-radius: 7px;
+  color: black;
+  font-size: 3rem;
+  margin: 0 1rem 3rem 0;
+  padding: 0.7rem 2rem;
+  text-decoration: none;
+}
+
+.title-to-complete-payment-data{
+  background-color: rgba(226, 221, 221, 0.8);
+  border-top: 4px solid hsl(345, 96%, 50%);
+  border-radius: 5px;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin: 7rem 0 5rem 0;
+  padding: 1.5rem 0 1rem 1rem;
+}
+
+.form-payment{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin-bottom: 4rem;
+}
+
+.form-payment label{
+  background-color: rgba(226, 221, 221, 0.8);
+  border: 1px solid hsl(345, 96%, 50%);
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  width: 40rem;
+}
+
+.input-payment{
+  background-color: white;
+  border-radius: 5px;
+  font-family: fantasy;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  width: 40rem;
+}
+
+.form-payment button{
+  box-shadow: 2px -2px 1px 1px rgba(255, 255, 255, 0.8);
+  background-color: black;
+  border-radius: 5px;
+  color: hsl(345, 96%, 50%);
+  cursor: pointer;
+  font-family: fantasy;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  width: 40rem;
+}
+
+.section-to-display-cart-payment-items{
+  grid-column-start: 2;
+  grid-column-end: 12;
+}
+
+.payment-box-container{
+  /* border: 1px solid red; */
+  background-color: rgba(226, 221, 221, 0.87);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.global-cart-payment-data{
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 19;
+}
+
+.total-payment-units,
+.total-payment-amount,
+.button-to-make-the-payment,
+.empty-cart-payment-button{
+  margin-bottom: 1.5rem;
+}
+
+.total-payment-units,
+.total-payment-amount{
+  font-size: 3rem;
+}
+
+.empty-cart-payment-button{
+  box-shadow: 2px -2px 1px 1px rgba(255, 255, 255, 0.8);
+  background-color: black;
+  border-radius: 5px;
+  color: hsl(345, 96%, 50%);
+  cursor: pointer;
+  font-family: fantasy;
+  font-size: 2rem;
+  margin: 1rem 0 2rem 0;
+  padding: 0.7rem;
+}

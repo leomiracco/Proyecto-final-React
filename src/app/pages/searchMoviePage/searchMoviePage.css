@@ -1,0 +1,95 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-home-search-movie-page-card{
+  min-height: 100vh;
+  padding-top: 14rem;
+}
+
+.div-container-search-movie-page-card{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.section-search-movie-data-card{
+  align-items: flex-start;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.img-container-card{
+  display: flex;
+}
+
+.img-container-card img{
+  border-radius: 10px;
+  box-shadow: 4px -4px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.section-search-movie-data-details{
+  grid-column-start: 7;
+  grid-column-end: 12;
+}
+
+.search-movie-data-container-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.search-movie-data-container-card h2{
+  background-color: rgba(226, 221, 221, 0.8);
+  border-radius: 10px;
+  color: black;
+  font-size: 3.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  padding: 1rem 12%;
+  text-align: center;
+}
+
+.search-movie-data-container-card .release-date-search,
+.search-movie-data-container-card .vote-search,
+.search-movie-data-container-card p{
+  background-color: rgba(9, 8, 8, 0.8);
+  border-radius: 10px;
+  color: hsl(345, 96%, 50%);
+  font-family: monospace;
+  margin-bottom: 2rem;
+  padding: 0.2rem 1rem;
+}
+
+.search-movie-data-container-card p{
+  padding: 0.7rem 1rem;
+}
+
+.button-back-container-search{
+  display: flex;
+  margin: 5rem 0;
+}
+
+.back-search{
+  background-color: rgba(9, 8, 8, 1);
+  border-radius: 7px;
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  color: white;
+  font-family: fantasy;
+  letter-spacing: 1.3px;
+  padding: 0.7rem 6rem;
+  text-decoration: none;
+}

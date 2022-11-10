@@ -1,29 +1,101 @@
 .navbar{
   align-items: center;
-  background-color: hsl(0, 0%, 15%);
+  background-color: hsl(0, 0%, 5%, 0.95);
   display: grid;
+
+  font-family: fantasy;
   grid-template-columns: repeat(18, 1fr);
 
   grid-column-start: 1;
   grid-column-end: 13;
 
   position: fixed;
+  z-index: 998;
 }
 
-.navbar .image-container{
+.image-container{
+  align-items: center;
+  /* border: 1px solid red; */
+  display: flex;
   grid-column-start: 2;
+  justify-content: flex-start;
 }
 
-.navbar .navigation-container{
+.image-container img{
+  /* border: 1px solid blue; */
+  display: flex;
+  min-width: 5rem;
+  padding: 0.5rem 0;
+  width: 6rem;
+}
+
+.navigation-container{
+  display: flex;
+  justify-content: space-between;
+  grid-column-start: 4;
+  grid-column-end: 11;
+}
+
+.navigation-container a{
+  color: white;
+  text-decoration: none;
+}
+
+.link-search-by-name{
+  
+}
+
+.navbar .login-logout-container{
   align-items: center;
   /* border: 1px solid green; */
   display: flex;
   
   grid-column-end: 18;
-  justify-content: space-between;
-  width: 18rem;
+  /* justify-content: space-between; */
+  width: 15rem;
 }
 
-.navbar .navigation-container a{
+.navbar .login-logout-container a{
+  /* color: white; */
+  text-decoration: none;
+}
+
+.shopping-cart-icon-container{
+  /* align-items: center; */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-cart-icon-container img{
+  /* border: 1px solid green; */
+  /* background-color: white; */
+  /* border-radius: 13px; */
+  /* padding: 0.2rem; */
+  width: 3rem;
+}
+
+.container-number-of-items-in-the-shopping-cart{
+  /* border: 1px solid green; */
+  position: relative;
+}
+
+.number-of-items-in-the-shopping-cart{
+  align-items: center;
+  background-color: hsl(345, 96%, 50%);
+  border-radius: 50%;
   color: white;
+  display: flex;
+  font-weight: 100;
+  font-size: 1.8rem;
+  height: 2rem;
+  justify-content: center;
+  position: absolute;
+  right: 0.27rem;
+  top: -0.45rem;
+  width: 2rem;
+}
+
+.item-number-font-size{
+  font-size: 1.4rem;
 }

@@ -1,20 +1,15 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { HomeLoginPage, HomeLogoutPage, LoginPage, RegisterPage } from "../app/pages";
+import { HomeLoginPage, HomeLogoutPage, LoginPage, RegisterPage, MoviePage, SeriesPage, SearchPage, SeriesDetailPage, SearchMoviePage, SearchByYearPage, PaymentPage } from "../app/pages";
 import { NavBar } from "../ui/components/navBar/NavBar";
-import { SpinnerAuth } from "../ui/components/spinnerAuth";
+// import { SpinnerAuth } from "../ui/components/spinnerAuth";
 import { useCheckAuth } from "../hooks";
-import { PrivateRoute, PublicRoute } from "./";
-import { PrivatePelisYaRoutes, PublicPelisYaRoutes } from "../app/appRoutes";
+import { CheckingAuth } from "../ui/components/checkingAuth/CheckingAuth";
+import { SearchDetailsByYearPage } from "../app/pages/searchDetailsByYearPage/SearchDetailsByYearPage";
 
 export const AppRouter = ()=>{
 
-  const {status} = useCheckAuth();
-
-  // if(status === 'checking'){
-    /* return <SpinnerAuth />; */ // acá le ponemos el componente no
-    // es más que el 'spinner'...
-  // }
+  const {status, isLogin} = useCheckAuth();
 
   return (
     <>
@@ -22,42 +17,55 @@ export const AppRouter = ()=>{
 
         {/* {(status === 'checking') && <SpinnerAuth />} */}
 
+        {(status === 'checking') && <CheckingAuth />}
+
       <Routes>
 
-        {(status === 'not-authenticated' || status === 'checking') && <Route path="/login" element={ <LoginPage /> } />}
+        {(!isLogin)
+          ? <Route path="/public" element={ <HomeLogoutPage /> } />
+          : <Route path="/home" element={ <HomeLoginPage /> } />
+        }
 
-        {(status === 'not-authenticated' || status === 'checking') && <Route path="/register" element={ <RegisterPage /> } />}
+        {(isLogin)
+          && <Route path="/home/movie" element={ <MoviePage /> } />
+        }
 
-        {(status === 'not-authenticated' || status === 'checking') && <Route path="/" element={ <HomeLogoutPage /> } />}
+        {(isLogin)
+          && <Route path="/home/serie" element={ <SeriesDetailPage /> } />
+        }
 
-        {(status === 'authenticated' || status === 'checking') && <Route path="/" element={ <HomeLoginPage /> } />}
+        {(isLogin)
+          && <Route path="/home/series" element={ <SeriesPage /> } />
+        }
 
-        {(status === 'authenticated' || status === 'checking') && <Route path="/*" element={ <Navigate to={"/"} /> } />}
+        {(isLogin)
+          && <Route path="/home/search" element={ <SearchPage /> } />
+        }
 
-        {/***************************************/}
+        {(isLogin)
+          && <Route path="/home/search/movie" element={ <SearchMoviePage /> } />
+        }
 
-        {/* <Route path="/*" element={
-          <PrivateRoute>
-            <Routes>
-              <Route path="home" element={<HomeLoginPage />} />
-            </Routes>
-          </PrivateRoute>
-        } /> */}
+        {(isLogin)
+          && <Route path="/home/search/byYear" element={ <SearchByYearPage /> } />
+        }
 
-        {/* <Route path="/public/*" element={
-          <PublicRoute>
-            <Routes>
-              <Route path="/home" element={
-                <HomeLogoutPage />} />
+        {(isLogin)
+          && <Route path="/home/payment" element={ <PaymentPage /> } />
+        }
 
-              <Route path="/login" element={
-                <LoginPage />} />
+        {(isLogin)
+          && <Route path="/home/search/detailsByYear" element={ <SearchDetailsByYearPage /> } />
+        }
 
-              <Route path="/register" element={
-                <RegisterPage />} />
-            </Routes>
-          </PublicRoute>
-        } /> */}
+        {(!isLogin) && <Route path="/public/login" element={ <LoginPage /> } />}
+
+        {(!isLogin) && <Route path="/public/register" element={ <RegisterPage /> } />}
+
+        {(!isLogin)
+          ? <Route path="/*" element={ <Navigate to={"/public"} /> } />
+          : <Route path="/*" element={ <Navigate to={"/home"} /> } />
+        }
 
       </Routes>
     </>

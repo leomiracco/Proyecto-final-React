@@ -1,0 +1,96 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.main-home-serie-page-details{
+  min-height: 100vh;
+  padding-top: 14rem;
+}
+
+.div-container-serie-page{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.section-serie-data{
+  align-items: flex-start;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.img-container-serie{
+  display: flex;
+}
+
+.img-container-serie img{
+  border-radius: 10px;
+  box-shadow: 4px -4px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.section-serie-data-details{
+  grid-column-start: 7;
+  grid-column-end: 12;
+}
+
+.serie-data-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.serie-data-container h2{
+  /* background-color: rgba(9, 8, 8, 0.8); */
+  background-color: rgba(226, 221, 221, 0.8);
+  border-radius: 10px;
+  color: black;
+  font-size: 3.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  padding: 1rem 12%;
+  text-align: center;
+}
+
+.serie-data-container .release-date-serie,
+.serie-data-container .vote-serie,
+.serie-data-container p{
+  background-color: rgba(9, 8, 8, 0.8);
+  border-radius: 10px;
+  color: hsl(345, 96%, 50%);
+  font-family: monospace;
+  margin-bottom: 2rem;
+  padding: 0.2rem 1rem;
+}
+
+.serie-data-container p{
+  padding: 0.7rem 1rem;
+}
+
+.button-back-container-serie{
+  display: flex;
+  margin: 5rem 0;
+}
+
+.back-serie{
+  background-color: rgba(9, 8, 8, 1);
+  border-radius: 7px;
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  color: white;
+  font-family: fantasy;
+  letter-spacing: 1.3px;
+  padding: 0.7rem 6rem;
+  text-decoration: none;
+}

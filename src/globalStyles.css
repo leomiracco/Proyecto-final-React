@@ -14,5 +14,11 @@ body{
 }
 
 #root{
+  background-image: linear-gradient(hsla(240, 7%, 80%, 0.65), hsla(240, 7%, 80%, 0.65)), url("../../../../assets/img/img-fondo-blanco-negro.webp");
+  background-position: center;
+  
+  font-family: fantasy;
+  font-weight: 100;
+  /* letter-spacing: 0.5px; */
   min-height: 100vh;
 }

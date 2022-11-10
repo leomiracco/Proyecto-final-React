@@ -13,24 +13,128 @@ body{
 }
 
 .main-home-logout-page{
-  background-color: hsl(160, 100%, 92%);
+  display: grid;
+  grid-template-rows: 1fr auto;
   min-height: 100vh;
-  padding-top: 8rem;
+  padding-top: 14rem;
 }
 
 .div-container-home-logout-page{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15rem;
+}
+
+.container-for-everything-except-the-footer{
+  /* border: 5px solid green; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.section-title{
-  border: 3px solid blue;
+.section-title-home-logout{
+  /* border: 5px solid yellowgreen; */
+  /* background-color: rgba(9, 8, 8, 0.8); */
   display: flex;
   grid-column-start: 2;
   grid-column-end: 12;
   justify-content: center;
+  margin-bottom: 10rem;
 }
 
 .title-home-logout-page{
+  background-color: rgba(226, 221, 221, 0.8);
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 10px;
+  color: black;
   font-size: 5rem;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 12%;
+  text-align: center;
+}
+
+.page-information{
+  align-items: center;
+  background-color: rgba(9, 8, 8, 0.8);
+  border-radius: 7px;
+  /* border: 5px solid violet; */
+  color: hsl(345, 96%, 50%);
+  display: flex;
+  flex-direction: column;
+  
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin-top: 3rem;
+  padding: 4.5rem 0;
+}
+
+.p-data{
+  align-items: center;
+  display: flex;
+  font-size: 2.8rem;
+  justify-content: center;
+}
+
+.page-info-paragraph{
+  padding-bottom: 4rem;
+}
+
+.compatible-devices{
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin-top: 15rem;
+}
+
+.device-information-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+}
+
+.device-image-container{
+  width: 50%;
+}
+
+.device-image{
+  /* border: 1px solid red; */
+  display: flex;
+  width: 100%;
+}
+
+.title-home-logout-page{
+  /* font-size: 5rem; */
+}
+
+.footer-home-logout{
+  Background-color: rgba(226, 221, 221, 0.8);
+  border: 6px solid black;
+  display: flex;
+  flex-direction: column;
+  /* height: 30rem; */
+}
+
+.global-footer-container{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.section-footer{
+  /* border: 1px solid red; */
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin-top: 3rem
+}
+
+.footer-home-logout h2{
+  letter-spacing: 1px;
+}
+
+.footer-help-section{
+  grid-column-start: 2;
+  grid-column-end: 12;
+  margin: 3rem 0;
+  padding-left: 2rem;
 }

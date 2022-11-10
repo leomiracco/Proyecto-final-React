@@ -14,9 +14,8 @@ body{
 
 .main-register-page{
   /* border: 5px solid blue; */
-  background-color: hsl(139, 72%, 86%);
   min-height: 100vh;
-  padding-top: 8rem;
+  padding-top: 14rem;
 }
 
 .div-container-register-page{
@@ -25,9 +24,36 @@ body{
 }
 
 .form-register{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   grid-column-start: 2;
   grid-column-end: 12;
+}
+
+.form-register div{
+  margin-bottom: 1rem;
+}
+
+.label-name-container label{
+  font-size: 2.2rem;
+  width: 30rem;
+}
+
+.input-name-container input{
+  border-radius: 5px;
+  font-family: fantasy;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 30rem;
+}
+
+.button-create-account-container button{
+  box-shadow: 2px -2px 1px 1px hsl(345, 96%, 50%, 0.8);
+  border-radius: 5px;
+  font-family: fantasy;
+  font-size: 2rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  width: 30rem;
 }
