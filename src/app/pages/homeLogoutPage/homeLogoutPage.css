@@ -109,7 +109,7 @@ body{
 }
 
 .footer-home-logout{
-  Background-color: rgba(226, 221, 221, 0.8);
+  background-color: rgba(226, 221, 221, 0.8);
   border: 6px solid black;
   display: flex;
   flex-direction: column;
