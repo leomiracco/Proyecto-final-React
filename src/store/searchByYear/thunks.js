@@ -1,21 +1,22 @@
-import { apiKey } from "../../apiPelisYa/config";
-import { getRandomPrice } from "../../helpers/getRandomPrice";
-import { errorSearchByYearQuery, setSearchByYear, startSearchByYearLoading } from "./searchByYearSlice";
+import { apiKey } from '../../apiPelisYa/config';
+import { getRandomPrice } from '../../helpers/getRandomPrice';
+import { orderMovies } from '../../helpers/orderMovies';
+import { errorSearchByYearQuery, setSearchByYear, startSearchByYearLoading } from './searchByYearSlice';
 
 export const getSearchMoviesByYear = (pageNumber = 1, search)=>{
 
   return async (dispatch, getState)=>{
 
     dispatch(startSearchByYearLoading(search));
-
+    // sort_by=primary_release_date.asc
+    // sort_by=popularity.desc
     try {
       const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${pageNumber}&include_adult=false&primary_release_year=${search}`);
 
       const data = await response.json();
       // console.log(data);
 
-      if(data.total_pages
-        ){
+      if(data.total_pages){
 
         const searchMovieByYear = [];
       
@@ -33,9 +34,9 @@ export const getSearchMoviesByYear = (pageNumber = 1, search)=>{
             amount: 1
           };
         };
+        let arrayMoviesCopy = [...searchMovieByYear];
 
-        dispatch(setSearchByYear({searchMovieByYear: searchMovieByYear, page: pageNumber, totalPages: data.total_pages}));
-        // console.log({searchMovieByYear});
+        dispatch(setSearchByYear({searchMovieByYear: orderMovies(arrayMoviesCopy), page: pageNumber, totalPages: data.total_pages}));
       }else{
         throw data;
       }

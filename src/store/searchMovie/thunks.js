@@ -1,5 +1,6 @@
 import { apiKey, searchYaURLMovie, searchYaURLSerie } from "../../apiPelisYa/config";
 import { getRandomPrice } from "../../helpers/getRandomPrice";
+import { orderMovies } from "../../helpers/orderMovies";
 import { errorSearchQuery, setSearch, startSearchLoading } from "./searchMovieSlice";
 
 
@@ -20,10 +21,9 @@ export const getSearchMovies = (pageNumber = 1, search)=>{
 
       // https://api.themoviedb.org/3/discover/movie?api_key=THE_KEY&language=pt-BR&sort_by=primary_release_date.asc&primary_release_year=1951
 
-      const response = await fetch(`${searchYaURLMovie}=${apiKey}&language=en-US&page=${pageNumber}&include_adult=false&sort_by=primary_release_date.desc&query=${search}`);
+      const response = await fetch(`${searchYaURLMovie}=${apiKey}&language=en-US&sort_by=primary_release_date.asc&page=${pageNumber}&include_adult=false&query=${search}`);
 
       const data = await response.json();
-      // console.log(data);
 
       if(data.total_pages
         ){
@@ -44,8 +44,10 @@ export const getSearchMovies = (pageNumber = 1, search)=>{
             amount: 1
           };
         };
+        
+        let arrayMoviesCopy = [...searchMovie];
 
-        dispatch(setSearch({searchMovie: searchMovie, page: pageNumber, totalPages: data.total_pages}));
+        dispatch(setSearch({searchMovie: orderMovies(arrayMoviesCopy), page: pageNumber, totalPages: data.total_pages}));
       }else{
         throw data;
       }
